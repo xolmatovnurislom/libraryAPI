@@ -1,0 +1,13 @@
+const express = require("express")
+const app = express()
+const connectDB = require("./config/db")
+const bookRoutes = require("./routes/bookRoutes")
+const userRoutes = require("./routes/userRoutes")
+require("dotenv").config()
+
+app.use(express.json())
+connectDB()
+app.use("/api", bookRoutes)
+app.use("/api", userRoutes)
+app.use((req, res) => res.status(404).send("Topilmadi!"))
+app.listen(process.env.PORT, () => console.log("Server working on express, Port: " + process.env.PORT))
