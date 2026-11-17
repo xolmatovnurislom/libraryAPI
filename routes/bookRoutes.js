@@ -36,7 +36,7 @@ router.get(
 
 router.post(
     "/books",
-    authMiddleware, roleMiddleware("seller", "admin"), bookController.createBook
+    bookController.createBook
 )
 
 router.get(
@@ -51,7 +51,7 @@ router.get(
 
 router.put(
     "/books/:id",
-    authMiddleware, roleMiddleware("seller", "admin"), bookController.updateBook
+    bookController.updateBook
 )
 
 router.delete(
