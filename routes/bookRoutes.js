@@ -56,7 +56,6 @@ router.put(
 
 router.delete(
     "/books/:id",
-    authMiddleware, roleMiddleware("seller", "admin"),
     bookController.deleteBook
 )
 
